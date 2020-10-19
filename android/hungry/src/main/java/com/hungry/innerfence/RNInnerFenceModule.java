@@ -16,16 +16,24 @@ import com.facebook.react.bridge.WritableMap;
 import com.innerfence.chargeapi.ChargeRequest;
 import com.innerfence.chargeapi.ChargeResponse;
 
-public class RNInnerFenceModule extends ReactContextBaseJavaModule implements ActivityEventListener{
+public class RNInnerFenceModule extends ReactContextBaseJavaModule {
 
     private Promise mPromise;
 
     private static final String E_TERMINAL_NOT_INSTALLED = "E_TERMINAL_NOT_INSTALLED";
     private static final String E_ACTIVITY_DOES_NOT_EXIST = "E_ACTIVITY_DOES_NOT_EXIST";
 
+    private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
+
+        @Override
+        public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent intent) {
+          handleActivityResult(activity, requestCode, resultCode, intent);
+        }
+    };
+
     public RNInnerFenceModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        reactContext.addActivityEventListener(this);
+        reactContext.addActivityEventListener(mActivityEventListener);
     }
 
     @Override
@@ -88,8 +96,7 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule implements Ac
         }
     }
 
-    @Override
-    public void onActivityResult( Activity activity, int requestCode, int resultCode, Intent data ) {
+    public void handleActivityResult( Activity activity, int requestCode, int resultCode, Intent data ) {
 
         if( requestCode == ChargeRequest.CCTERMINAL_REQUEST_CODE ) {
             ChargeResponse chargeResponse = new ChargeResponse( data );
