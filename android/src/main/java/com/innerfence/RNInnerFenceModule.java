@@ -105,7 +105,7 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
         final String state = innerFenceParameters.getString("state");
         final String zip = innerFenceParameters.getString("zip");
         final String recordId = innerFenceParameters.getString("recordId");
-
+        
         ChargeRequest chargeRequest = new ChargeRequest();
 
         Bundle extraParams = new Bundle();
