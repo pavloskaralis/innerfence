@@ -27,7 +27,7 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
     private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
 
         @Override
-        public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent intent) {
+        public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
             if( requestCode == ChargeRequest.CCTERMINAL_REQUEST_CODE ) {
                 ChargeResponse chargeResponse = new ChargeResponse( data );
     
