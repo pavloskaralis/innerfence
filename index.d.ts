@@ -13,8 +13,9 @@ declare module "hungry-inner-fence" {
   export interface PaymentParams {
       address: String,
       amount: String,
-      curreny: String,
+      currency: String,
       city: String,
+      country: String,
       company: String,
       description: String, 
       email: String,
