@@ -92,7 +92,7 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
 
         final String address = innerFenceParameters.getString("address");
         final String amount = innerFenceParameters.getString("amount");
-        final String currency = innerFenceParameters.getString("curency");
+        final String currency = innerFenceParameters.getString("currency");
         final String city = innerFenceParameters.getString("city");
         final String company = innerFenceParameters.getString("company");
         final String country = innerFenceParameters.getString("country");
