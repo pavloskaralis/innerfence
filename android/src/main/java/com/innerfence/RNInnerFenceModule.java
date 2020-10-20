@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import android.content.*;
 import android.content.pm.*;
+import android.content.pm.PackageManager; 
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.BaseActivityEventListener;
