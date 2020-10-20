@@ -53,7 +53,11 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
                     cardType = String.format("%s\n",chargeResponse.getCardType());
                     redactedCardNumber = String.format("%s\n",chargeResponse.getRedactedCardNumber());
                 } else {
-                    status = String.format("%s\n",activity.getPackageName());
+                    String packageName = callingActivity.getPackageName();
+                ApplicationInfo appInfo = callingActivity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
+               
+
+                    status = String.format("%s\n",callingActivity.getPackageManager().getApplicationLabel( appInfo ));
                 }
     
                 WritableMap res = Arguments.createMap();
