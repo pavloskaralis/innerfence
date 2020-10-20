@@ -1,2 +1,9 @@
-ds_store
+# Android/IntelliJ
+#
+build/
 .idea
+.gradle
+local.properties
+*.iml
+
+DS_STORE
