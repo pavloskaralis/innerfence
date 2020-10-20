@@ -14,6 +14,9 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 
+import com.innerfence.ChargeRequest;
+import com.innerfence.ChargeResponse;
+
 public class RNInnerFenceModule extends ReactContextBaseJavaModule {
 
     private Promise mPromise;
