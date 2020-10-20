@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.facebook.react.bridge.ActivityEventListener;
+import com.facebook.react.bridge.BaseActivityEventListener;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -12,9 +13,6 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
-
-import com.innerfence.ChargeRequest;
-import com.innerfence.ChargeResponse;
 
 public class RNInnerFenceModule extends ReactContextBaseJavaModule {
 
@@ -27,7 +25,44 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
 
         @Override
         public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent intent) {
-          handleActivityResult(activity, requestCode, resultCode, intent);
+            if( requestCode == ChargeRequest.CCTERMINAL_REQUEST_CODE ) {
+                ChargeResponse chargeResponse = new ChargeResponse( data );
+    
+                String status;
+                String recordId = null;
+                String transactionId = null;
+                String amount = null;
+                String currency = null;
+                String cardType = null;
+                String redactedCardNumber = null;
+    
+                Bundle extraParams = chargeResponse.getExtraParams();
+                if( null != extraParams ) {
+                    recordId = chargeResponse.getExtraParams().getString("record_id");
+                }
+    
+                if ( chargeResponse.getResponseCode() == ChargeResponse.Code.APPROVED ) {
+                    status = "charged";
+                    recordId = String.format("%s\n",recordId);
+                    transactionId = String.format("%s\n",chargeResponse.getTransactionId());
+                    amount = String.format("%s\n",chargeResponse.getAmount());
+                    currency = String.format("%s\n",chargeResponse.getCurrency());
+                    cardType = String.format("%s\n",chargeResponse.getCardType());
+                    redactedCardNumber = String.format("%s\n",chargeResponse.getRedactedCardNumber());
+                } else {
+                    status = "not charged";
+                }
+    
+                WritableMap res = Arguments.createMap();
+                res.putString("status", status);
+                res.putString("recordId", recordId);
+                res.putString("transactionId", transactionId);
+                res.putString("amount", amount);
+                res.putString("currency", currency);
+                res.putString("cardType", cardType);
+                res.putString("redactedCardNumber", redactedCardNumber);
+                mPromise.resolve(res);
+            }
         }
     };
 
@@ -93,48 +128,6 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
             chargeRequest.submit( activity );
         } catch( ChargeRequest.ApplicationNotInstalledException ex ) {
             mPromise.reject(E_TERMINAL_NOT_INSTALLED, "Credit card terminal not installed");
-        }
-    }
-
-    public void handleActivityResult( Activity activity, int requestCode, int resultCode, Intent data ) {
-
-        if( requestCode == ChargeRequest.CCTERMINAL_REQUEST_CODE ) {
-            ChargeResponse chargeResponse = new ChargeResponse( data );
-
-            String status;
-            String recordId = null;
-            String transactionId = null;
-            String amount = null;
-            String currency = null;
-            String cardType = null;
-            String redactedCardNumber = null;
-
-            Bundle extraParams = chargeResponse.getExtraParams();
-            if( null != extraParams ) {
-                recordId = chargeResponse.getExtraParams().getString("record_id");
-            }
-
-            if ( chargeResponse.getResponseCode() == ChargeResponse.Code.APPROVED ) {
-                status = "charged";
-                recordId = String.format("%s\n",recordId);
-                transactionId = String.format("%s\n",chargeResponse.getTransactionId());
-                amount = String.format("%s\n",chargeResponse.getAmount());
-                currency = String.format("%s\n",chargeResponse.getCurrency());
-                cardType = String.format("%s\n",chargeResponse.getCardType());
-                redactedCardNumber = String.format("%s\n",chargeResponse.getRedactedCardNumber());
-            } else {
-                status = "not charged";
-            }
-
-            WritableMap res = Arguments.createMap();
-            res.putString("status", status);
-            res.putString("recordId", recordId);
-            res.putString("transactionId", transactionId);
-            res.putString("amount", amount);
-            res.putString("currency", currency);
-            res.putString("cardType", cardType);
-            res.putString("redactedCardNumber", redactedCardNumber);
-            mPromise.resolve(res);
         }
     }
 
