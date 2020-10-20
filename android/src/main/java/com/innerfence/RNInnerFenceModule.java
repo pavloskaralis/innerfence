@@ -13,8 +13,8 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 
-import com.innerface.ChargeRequest;
-import com.innerface.ChargeResponse;
+import com.innerfence.ChargeRequest;
+import com.innerfence.ChargeResponse;
 
 public class RNInnerFenceModule extends ReactContextBaseJavaModule {
 
@@ -56,14 +56,14 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
         final String amount = innerFenceParameters.getString("amount");
         final String currency = innerFenceParameters.getString("curency");
         final String city = innerFenceParameters.getString("city");
-        final String company = innerFenceParametersParameters.getDouble("company");
+        final String company = innerFenceParametersParameters.getString("company");
         final String country = innerFenceParameters.getString("country");
         final String description = innerFenceParameters.getString("description");
-        final String email = innerFenceParameters.getBoolean("email");
+        final String email = innerFenceParameters.getString("email");
         final String firstName = innerFenceParameters.getString("firstName");
-        final String invoiceNumber = innerFenceParameters.getBoolean("invoiceNumber");
+        final String invoiceNumber = innerFenceParameters.getString("invoiceNumber");
         final String lastName = innerFenceParameters.getString("lastName");
-        final String phone = innerFenceParametersParameters.getDouble("phone");
+        final String phone = innerFenceParametersParameters.getString("phone");
         final String state = innerFenceParameters.getString("state");
         final String zip = innerFenceParameters.getString("zip");
         final String recordId = innerFenceParameters.getString("recordId");
