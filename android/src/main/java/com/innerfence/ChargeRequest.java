@@ -6,7 +6,7 @@ import android.content.pm.*;
 import android.os.Bundle;
 
 public class ChargeRequest {
-    public static final int CCTERMINAL_REQUEST_CODE = 0x698893c1;
+    public static final int CCTERMINAL_REQUEST_CODE = 43572;
     public static final String CCTERMINAL_MARKET_LINK = "market://details?id=com.innerfence.ccterminal";
 
     public class ApplicationNotInstalledException extends Exception { }
