@@ -61,20 +61,17 @@ public class ChargeResponse{
     protected ChargeResponse() { }
 
     public ChargeResponse( Intent data ) {
-        if( null == data )
-        {
+        if( null == data ) {
             throw new IllegalArgumentException("data is null");
         }
 
-        if( null == data.getExtras() )
-        {
+        if( null == data.getExtras() ) {
             throw new IllegalArgumentException("data has no extras bundle.");
         }
 
         Bundle bundle = data.getExtras();
 
-        if( !bundle.containsKey(Keys.RESPONSE_TYPE) )
-        {
+        if( !bundle.containsKey(Keys.RESPONSE_TYPE) ) {
             throw new IllegalArgumentException("data's extras bundle doesn't contain a response type");
         }
 
@@ -92,20 +89,16 @@ public class ChargeResponse{
 
         validateFields();
 
-        if( Type.APPROVED.equals(_responseType) )
-        {
+        if( Type.APPROVED.equals(_responseType) ) {
             _responseCode = Code.APPROVED;
         }
-        else if( Type.CANCELLED.equals(_responseType) )
-        {
+        else if ( Type.CANCELLED.equals(_responseType) ) {
             _responseCode = Code.CANCELLED;
         }
-        else if( Type.DECLINED.equals(_responseType) )
-        {
+        else if ( Type.DECLINED.equals(_responseType) ) {
             _responseCode = Code.DECLINED;
         }
-        else
-        {
+        else {
             _responseCode = Code.ERROR;
         }
     }
@@ -229,3 +222,4 @@ public class ChargeResponse{
         }
     }
 }
+ 

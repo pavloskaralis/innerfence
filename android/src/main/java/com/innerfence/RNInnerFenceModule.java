@@ -53,7 +53,7 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
                     cardType = String.format("%s\n",chargeResponse.getCardType());
                     redactedCardNumber = String.format("%s\n",chargeResponse.getRedactedCardNumber());
                 } else {
-                    status = "not charged";
+                    status = chargeResponse.getResponseCode();
                 }
     
                 WritableMap res = Arguments.createMap();
