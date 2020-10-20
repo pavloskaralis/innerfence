@@ -1,4 +1,4 @@
-package com.hungry.innerfence;
+package com.innerfence;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -1,21 +1,18 @@
-package com.innerfence.chargeapi;
+package com.innerface;
 
 import android.content.Intent;
 import android.os.Bundle;
 import java.util.regex.Pattern;
 
-public class ChargeResponse
-{
-    public enum Code
-    {
+public class ChargeResponse{
+    public enum Code {
         APPROVED,
         CANCELLED,
         DECLINED,
         ERROR,
     }
 
-    public static class Keys
-    {
+    public static class Keys {
         public static final String AMOUNT               = "ifcc_amount";
         public static final String CARD_TYPE            = "ifcc_cardType";
         public static final String CURRENCY             = "ifcc_currency";
@@ -29,8 +26,7 @@ public class ChargeResponse
         public static final String TRANSACTION_ID       = "ifcc_transactionId";
     }
 
-    static class Patterns
-    {
+    static class Patterns {
         public static final String AMOUNT               = "^(0|[1-9][0-9]*)[.][0-9][0-9]$";
         public static final String CARD_TYPE            = "^[A-Za-z ]{0,20}$";
         public static final String CURRENCY             = "^[A-Z]{3}$";
@@ -42,8 +38,7 @@ public class ChargeResponse
         public static final String TRANSACTION_ID       = "^.{1,255}$";
     }
 
-    public static class Type
-    {
+    public static class Type {
         public static final String APPROVED  = "approved";
         public static final String CANCELLED = "cancelled";
         public static final String DECLINED  = "declined";
@@ -65,8 +60,7 @@ public class ChargeResponse
 
     protected ChargeResponse() { }
 
-    public ChargeResponse( Intent data )
-    {
+    public ChargeResponse( Intent data ) {
         if( null == data )
         {
             throw new IllegalArgumentException("data is null");
@@ -120,8 +114,7 @@ public class ChargeResponse
     // string, which is a currency value to two decimal places like
     // "50.00". This property will only be set if responseCode is
     // Accepted. This amount includes tax and tip.
-    public String getAmount()
-    {
+    public String getAmount() {
         return _amount;
     }
 
@@ -130,23 +123,20 @@ public class ChargeResponse
     // "Discover". This property will only be set if responseCode is
     // Accepted. In the case that the card type is unknown, this
     // property will be nil.
-    public String getCardType()
-    {
+    public String getCardType() {
         return _cardType;
     }
 
     // currency - The ISO 4217 currency code for the transaction
     // amount. For example, "USD" for US Dollars. This property will
     // be set when amount is set.
-    public String getCurrency()
-    {
+    public String getCurrency() {
         return _currency;
     }
 
     // errorMessage - If an error occured, more diagnostic info will
     // be provided in parameter
-    public String getErrorMessage()
-    {
+    public String getErrorMessage() {
         return _errorMessage;
     }
 
@@ -160,36 +150,31 @@ public class ChargeResponse
     // need to validate any parameters from the extraParams fields
     // that you will be using. For example, if you expect a numeric
     // value, you should ensure the field is comprised of digits.
-    public Bundle getExtraParams()
-    {
+    public Bundle getExtraParams() {
         return _extraParams;
     }
 
     // redactedCardNumber - This string is the credit card number with
     // all but the last four digits replaced by 'X'. This property
     // will only be set if responseCode is Accepted.
-    public String getRedactedCardNumber()
-    {
+    public String getRedactedCardNumber() {
         return _redactedCardNumber;
     }
 
     // responseCode - One of the ChargeResponse.Code enum values.
-    public Code getResponseCode()
-    {
+    public Code getResponseCode() {
         return _responseCode;
     }
 
     // responseType - string value of responseCode
-    public String getResponseType()
-    {
+    public String getResponseType() {
         return _responseType;
     }
 
     // taxAmount - The tax portion of amount. This is a string, which
     // is a currency value to two decimal places like "4.06". This
     // property will only be set if sales tax was applied.
-    public String getTaxAmount()
-    {
+    public String getTaxAmount() {
         return _taxAmount;
     }
 
@@ -197,16 +182,14 @@ public class ChargeResponse
     // original amount. This is a string, which is a number between 0
     // and 99.999 with upto three decimal places like "8.125". This
     // property will only be set if sales tax was applied.
-    public String getTaxRate()
-    {
+    public String getTaxRate() {
         return _taxRate;
     }
 
     // tipAmount - The tip portion of amount. This is a string, which
     // is a currency value to two decimal places like "10.00". This
     // property will only be set if a tip was provided.
-    public String getTipAmount()
-    {
+    public String getTipAmount() {
         return _tipAmount;
     }
 
@@ -223,13 +206,11 @@ public class ChargeResponse
     // 255 characters; you must be wary of SQL injection and similar
     // malicious data attacks. As such, you will should ensure whatever
     // you use the transaction ID for properly escapes it.
-    public String getTransactionId()
-    {
+    public String getTransactionId() {
         return _transactionId;
     }
 
-    public void validateFields()
-    {
+    public void validateFields() {
         validateField( Patterns.AMOUNT,               _amount,             Keys.AMOUNT );
         validateField( Patterns.CARD_TYPE,            _cardType,           Keys.CARD_TYPE );
         validateField( Patterns.CURRENCY,             _currency,           Keys.CURRENCY );
@@ -241,8 +222,7 @@ public class ChargeResponse
         validateField( Patterns.TRANSACTION_ID,       _transactionId,      Keys.TRANSACTION_ID );
     }
 
-    public void validateField( String pattern, String value, String fieldName )
-    {
+    public void validateField( String pattern, String value, String fieldName ) {
         if( null != value && !Pattern.matches( pattern, value ) )
         {
             throw new IllegalArgumentException( fieldName );

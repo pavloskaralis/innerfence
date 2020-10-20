@@ -1,4 +1,4 @@
-package com.innerfence.chargeapi;
+package com.innerface;
 
 import android.app.Activity;
 import android.content.*;
