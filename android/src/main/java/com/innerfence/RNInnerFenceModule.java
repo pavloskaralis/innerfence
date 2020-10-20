@@ -1,4 +1,4 @@
-package com.innerface;
+package com.innerfence;
 
 import android.app.Activity;
 import android.content.Intent;
