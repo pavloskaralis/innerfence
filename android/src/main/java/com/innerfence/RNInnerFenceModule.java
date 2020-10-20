@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.content.*;
 import android.content.pm.*;
 import android.content.pm.PackageManager; 
-
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.BaseActivityEventListener;
 import com.facebook.react.bridge.Arguments;
@@ -58,11 +57,11 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
                     redactedCardNumber = String.format("%s\n",chargeResponse.getRedactedCardNumber());
                 } else {
 
-                    String packageName = activity.getPackageName();
-                ApplicationInfo appInfo = activity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
+                //     String packageName = activity.getPackageName();
+                // ApplicationInfo appInfo = activity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
                
 
-                    status = String.format("%s\n",activity.getPackageManager().getApplicationLabel( appInfo ));
+                    status = String.format("%s\n",activity.getPackageManager());
                 }
     
                 WritableMap res = Arguments.createMap();
