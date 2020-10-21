@@ -35,7 +35,7 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
             if( requestCode == ChargeRequest.CCTERMINAL_REQUEST_CODE ) {
                 ChargeResponse chargeResponse = new ChargeResponse( data );
     
-                String status;
+                String status = null;
                 String recordId = null;
                 String transactionId = null;
                 String amount = null;
