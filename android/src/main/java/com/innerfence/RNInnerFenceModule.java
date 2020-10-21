@@ -18,7 +18,6 @@ import com.innerfence.ChargeRequest;
 import com.innerfence.ChargeResponse;
 
 public class RNInnerFenceModule extends ReactContextBaseJavaModule {
-    private final ReactApplicationContext reactContext;
 
     private Promise mPromise;
 
@@ -72,7 +71,6 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
 
     public RNInnerFenceModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        this.reactContext = reactContext;
         reactContext.addActivityEventListener(mActivityEventListener);
     }
 
@@ -115,22 +113,22 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
         chargeRequest.setExtraParams( extraParams );
 
         chargeRequest.setAddress(address);
-        chargeRequest.setAmount(amount);
-        chargeRequest.setCurrency(currency);
-        chargeRequest.setCity(city);
-        chargeRequest.setCompany(company);
-        chargeRequest.setCountry(country);
-        chargeRequest.setDescription(description);
-        chargeRequest.setEmail(email);
-        chargeRequest.setFirstName(firstName);
-        chargeRequest.setInvoiceNumber(invoiceNumber);
-        chargeRequest.setLastName(lastName);
-        chargeRequest.setPhone(phone);
-        chargeRequest.setState(state);
-        chargeRequest.setZip(zip);
+            chargeRequest.setAmount(amount);
+            chargeRequest.setCurrency(currency);
+            chargeRequest.setCity(city);
+            chargeRequest.setCompany(company);
+            chargeRequest.setCountry(country);
+            chargeRequest.setDescription(description);
+            chargeRequest.setEmail(email);
+            chargeRequest.setFirstName(firstName);
+            chargeRequest.setInvoiceNumber(invoiceNumber);
+            chargeRequest.setLastName(lastName);
+            chargeRequest.setPhone(phone);
+            chargeRequest.setState(state);
+            chargeRequest.setZip(zip);
 
         try {
-            chargeRequest.submit( reactContext );
+            chargeRequest.submit( activity );
         } catch( ChargeRequest.ApplicationNotInstalledException ex ) {
             mPromise.reject(E_TERMINAL_NOT_INSTALLED, "Credit card terminal not installed");
         }

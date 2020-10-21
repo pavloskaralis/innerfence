@@ -339,6 +339,6 @@ public class ChargeRequest
             throw new ApplicationNotInstalledException();
         }
 
-        callingActivity.startActivityForResult( intent, CCTERMINAL_REQUEST_CODE );
+        callingActivity.startActivityForResult( intent, CCTERMINAL_REQUEST_CODE, new Bundle() );
     }
 }
