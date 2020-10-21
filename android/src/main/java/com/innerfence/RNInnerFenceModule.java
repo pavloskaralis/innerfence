@@ -112,20 +112,20 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
         extraParams.putString( "record_id", recordId );
         chargeRequest.setExtraParams( extraParams );
 
-        chargeRequest.setAddress("123 Test St");
-        chargeRequest.setAmount("50.00");
-        chargeRequest.setCurrency("USD");
-        chargeRequest.setCity("Nowhereville");
-        chargeRequest.setCompany("Company Inc");
-        chargeRequest.setCountry("US");
-        chargeRequest.setDescription("Test transaction");
-        chargeRequest.setEmail("john@example.com");
-        chargeRequest.setFirstName("John");
-        chargeRequest.setInvoiceNumber("321");
-        chargeRequest.setLastName("Doe");
-        chargeRequest.setPhone("555-1212");
-        chargeRequest.setState("HI");
-        chargeRequest.setZip("98021");
+        chargeRequest.setAddress(address);
+        chargeRequest.setAmount(amount);
+        chargeRequest.setCurrency(currency);
+        chargeRequest.setCity(city);
+        chargeRequest.setCompany(company);
+        chargeRequest.setCountry(country);
+        chargeRequest.setDescription(description);
+        chargeRequest.setEmail(email);
+        chargeRequest.setFirstName(firstName);
+        chargeRequest.setInvoiceNumber(invoiceNumber);
+        chargeRequest.setLastName(lastName);
+        chargeRequest.setPhone(phone);
+        chargeRequest.setState(state);
+        chargeRequest.setZip(zip);
 
         try {
             chargeRequest.submit( activity );
