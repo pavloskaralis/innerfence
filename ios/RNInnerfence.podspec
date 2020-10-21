@@ -4,7 +4,7 @@ package = JSON.parse(File.read('../package.json'))
 Pod::Spec.new do |s|
   s.name         = "RNInnerfence"
   s.version      =  package["version"]
-  s.summary      = package["summary"]
+  s.summary      = "summary"
   s.description  = <<-DESC
                   RNInnerfence
                    DESC
