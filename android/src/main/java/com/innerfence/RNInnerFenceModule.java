@@ -18,6 +18,7 @@ import com.innerfence.ChargeRequest;
 import com.innerfence.ChargeResponse;
 
 public class RNInnerFenceModule extends ReactContextBaseJavaModule {
+    private final ReactApplicationContext reactContext;
 
     private Promise mPromise;
 
@@ -71,6 +72,7 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
 
     public RNInnerFenceModule(ReactApplicationContext reactContext) {
         super(reactContext);
+        this.reactContext = reactContext;
         reactContext.addActivityEventListener(mActivityEventListener);
     }
 
@@ -128,7 +130,7 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
         chargeRequest.setZip(zip);
 
         try {
-            chargeRequest.submit( activity );
+            chargeRequest.submit( reactContext );
         } catch( ChargeRequest.ApplicationNotInstalledException ex ) {
             mPromise.reject(E_TERMINAL_NOT_INSTALLED, "Credit card terminal not installed");
         }
