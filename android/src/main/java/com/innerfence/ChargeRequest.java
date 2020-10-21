@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.*;
 import android.content.pm.*;
 import android.os.Bundle;
+import android.util.Log;
 
 public class ChargeRequest {
     public static final int CCTERMINAL_REQUEST_CODE = 43572;
