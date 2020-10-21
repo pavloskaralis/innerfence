@@ -221,12 +221,15 @@ public class ChargeRequest {
     }
 
     public void submit( Activity callingActivity ) throws ApplicationNotInstalledException {
+        Log.v("TEST!!!!");
+
         if( null == _returnAppName ) {
             try {
                 String packageName = callingActivity.getPackageName();
                 ApplicationInfo appInfo = callingActivity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
                 _returnAppName = callingActivity.getPackageManager().getApplicationLabel( appInfo ).toString();
             } catch( PackageManager.NameNotFoundException ex ) {
+                Log.v("ERROR!!!!");
                 ex.printStackTrace();
             }
         }
