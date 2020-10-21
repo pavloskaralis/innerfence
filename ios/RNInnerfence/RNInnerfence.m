@@ -23,10 +23,16 @@
 
 @implementation RNInnerfence
 
+- (dispatch_queue_t)methodQueue
+{
+    return dispatch_get_main_queue();
+}
+
 RCT_EXPORT_MODULE()
 
-RCT_REMAP_METHOD(paymentRequest: (NSString *)email, resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
-{
+RCT_REMAP_METHOD(paymentRequest, params:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject){
+
+    //resolve(@"HELLO FROM INNERFENCE IOS MODULE");
     IFChargeRequest* chargeRequest = [IFChargeRequest new];
 
     // Include my record_id so it comes back with the response
@@ -46,7 +52,8 @@ RCT_REMAP_METHOD(paymentRequest: (NSString *)email, resolver:(RCTPromiseResolveB
     chargeRequest.taxRate = @"8.5";
 
     [chargeRequest submit];
-
+    resolve(@"HELLO FROM INNERFENCE IOS MODULE");
+   // return @"hello";
 }
-    
+
 @end
