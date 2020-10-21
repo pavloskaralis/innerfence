@@ -108,9 +108,9 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
         
         ChargeRequest chargeRequest = new ChargeRequest();
 
-        // Bundle extraParams = new Bundle();
-        // extraParams.putString( "record_id", "recordId" );
-        // chargeRequest.setExtraParams( extraParams );
+        Bundle extraParams = new Bundle();
+        extraParams.putString( "record_id", recordId );
+        chargeRequest.setExtraParams( extraParams );
 
         chargeRequest.setAddress(address);
             chargeRequest.setAmount(amount);
