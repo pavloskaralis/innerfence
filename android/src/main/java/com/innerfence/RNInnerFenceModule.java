@@ -61,11 +61,11 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
                     try {
                         String packageName = activity.getPackageName();
                         ApplicationInfo appInfo = activity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
-                        String test = activity.getPackageManager().getApplicationLabel( appInfo ).toString();
+                        status = activity.getPackageManager().getApplicationLabel( appInfo ).toString();
                     } catch( PackageManager.NameNotFoundException ex ) {
                         ex.printStackTrace();
                     }
-                    status = test;
+                    
                 }
     
                 WritableMap res = Arguments.createMap();
