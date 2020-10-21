@@ -232,25 +232,25 @@ public class ChargeRequest {
         }
 
         Bundle bundle = new Bundle();
-        bundle.putString( Keys.ADDRESS,            _address );
-        bundle.putString( Keys.AMOUNT,             _amount );
-        bundle.putString( Keys.AMOUNT_FIXED,       _amountFixed );
-        bundle.putString( Keys.CITY,               _city );
-        bundle.putString( Keys.COMPANY,            _company );
-        bundle.putString( Keys.COUNTRY,            _country );
-        bundle.putString( Keys.CURRENCY,           _currency );
-        bundle.putString( Keys.DESCRIPTION,        _description );
-        bundle.putString( Keys.EMAIL,              _email );
-        bundle.putBundle( Keys.EXTRA_PARAMS,       _extraParams );
-        bundle.putString( Keys.FIRST_NAME,         _firstName );
-        bundle.putString( Keys.INVOICE_NUMBER,     _invoiceNumber );
-        bundle.putString( Keys.LAST_NAME,          _lastName );
-        bundle.putString( Keys.PHONE,              _phone );
-        bundle.putString( Keys.STATE,              _state );
-        bundle.putString( Keys.TAX_RATE,           _taxRate );
-        bundle.putString( Keys.ZIP,                _zip );
+        // bundle.putString( Keys.ADDRESS,            _address );
+        // bundle.putString( Keys.AMOUNT,             _amount );
+        // bundle.putString( Keys.AMOUNT_FIXED,       _amountFixed );
+        // bundle.putString( Keys.CITY,               _city );
+        // bundle.putString( Keys.COMPANY,            _company );
+        // bundle.putString( Keys.COUNTRY,            _country );
+        // bundle.putString( Keys.CURRENCY,           _currency );
+        // bundle.putString( Keys.DESCRIPTION,        _description );
+        // bundle.putString( Keys.EMAIL,              _email );
+        // bundle.putBundle( Keys.EXTRA_PARAMS,       _extraParams );
+        // bundle.putString( Keys.FIRST_NAME,         _firstName );
+        // bundle.putString( Keys.INVOICE_NUMBER,     _invoiceNumber );
+        // bundle.putString( Keys.LAST_NAME,          _lastName );
+        // bundle.putString( Keys.PHONE,              _phone );
+        // bundle.putString( Keys.STATE,              _state );
+        // bundle.putString( Keys.TAX_RATE,           _taxRate );
+        // bundle.putString( Keys.ZIP,                _zip );
         bundle.putString( Keys.RETURN_APP_NAME,    _returnAppName );
-        bundle.putString( Keys.RETURN_IMMEDIATELY, _returnImmediately );
+        // bundle.putString( Keys.RETURN_IMMEDIATELY, _returnImmediately );
 
         Intent intent = new Intent();
         intent.setClassName("com.innerfence.ccterminal", "com.innerfence.ccterminal.TerminalActivity");
