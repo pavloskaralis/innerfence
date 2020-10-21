@@ -226,7 +226,9 @@ public class ChargeRequest {
                 String packageName = callingActivity.getPackageName();
                 ApplicationInfo appInfo = callingActivity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
                 _returnAppName = callingActivity.getPackageManager().getApplicationLabel( appInfo ).toString();
-            } catch( PackageManager.NameNotFoundException ex ) {}
+            } catch( PackageManager.NameNotFoundException ex ) {
+                ex.printStackTrace();
+            }
         }
 
         Bundle bundle = new Bundle();

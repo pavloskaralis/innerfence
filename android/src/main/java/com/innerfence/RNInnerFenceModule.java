@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.content.*;
-import android.content.pm.*;
-import android.content.pm.PackageManager;
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.BaseActivityEventListener;
 import com.facebook.react.bridge.Arguments;
@@ -56,12 +53,7 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
                     cardType = String.format("%s\n",chargeResponse.getCardType());
                     redactedCardNumber = String.format("%s\n",chargeResponse.getRedactedCardNumber());
                 } else {
-
-                    String packageName = activity.getPackageName();
-                    ApplicationInfo appInfo = activity.getPackageManager().getApplicationInfo( "com.hungry.captain", PackageManager.GET_META_DATA );
-               
-
-                    status = String.format("%s\n",activity.getPackageManager().getApplicationLabel( appInfo ));
+                    status = "not charged";
                 }
     
                 WritableMap res = Arguments.createMap();
