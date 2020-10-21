@@ -327,7 +327,7 @@ public class ChargeRequest
         bundle.putString( Keys.STATE,              _state );
         // bundle.putString( Keys.TAX_RATE,           _taxRate );
         bundle.putString( Keys.ZIP,                _zip );
-        bundle.putString( Keys.RETURN_APP_NAME,    _returnAppName );
+        // bundle.putString( Keys.RETURN_APP_NAME,    _returnAppName );
         // bundle.putString( Keys.RETURN_IMMEDIATELY, _returnImmediately );
 
         Intent intent = new Intent();
