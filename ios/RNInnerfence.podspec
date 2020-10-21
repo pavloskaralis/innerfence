@@ -4,7 +4,7 @@ package = JSON.parse(File.read('../package.json'))
 Pod::Spec.new do |s|
   s.name         = "RNInnerfence"
   s.version      =  package["version"]
-  s.summary      = package["description"]
+  s.summary      = ""
   s.description  = <<-DESC
                   RNInnerfence
                    DESC
@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/BhavikBhatt/innerfence-ios.git", :tag => "master" }
   s.source_files  = "RNInnerfence/**/*.{h,m}"
   s.requires_arc = true
-
 
 
   s.dependency "React"
