@@ -332,13 +332,13 @@ public class ChargeRequest
 
         Intent intent = new Intent();
         intent.setClassName("com.innerfence.ccterminal", "com.innerfence.ccterminal.TerminalActivity");
-        intent.putExtras( bundle );
+        // intent.putExtras( bundle );
 
         if( !ChargeRequest.IsAppInstalled(callingActivity) )
         {
             throw new ApplicationNotInstalledException();
         }
 
-        callingActivity.startActivityForResult( intent, CCTERMINAL_REQUEST_CODE, new Bundle() );
+        callingActivity.startActivityForResult( intent, CCTERMINAL_REQUEST_CODE );
     }
 }
