@@ -309,9 +309,12 @@ public class ChargeRequest
             }
         }
 
+        String test = "20.00";
+        this.setAmount(test);
+
         Bundle bundle = new Bundle();
         bundle.putString( Keys.ADDRESS,            _address );
-        bundle.putString( Keys.AMOUNT,             getAmount() );
+        bundle.putString( Keys.AMOUNT,             _amount );
         bundle.putString( Keys.AMOUNT_FIXED,       _amountFixed );
         bundle.putString( Keys.CITY,               _city );
         bundle.putString( Keys.COMPANY,            _company );
