@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.*;
 import android.content.pm.*;
 import android.os.Bundle;
-import android.util.Log;
 
 public class ChargeRequest {
     public static final int CCTERMINAL_REQUEST_CODE = 43572;
@@ -222,18 +221,15 @@ public class ChargeRequest {
     }
 
     public void submit( Activity callingActivity ) throws ApplicationNotInstalledException {
-        Log.d("test","TEST!!!!");
-
-        if( null == _returnAppName ) {
-            try {
-                String packageName = callingActivity.getPackageName();
-                ApplicationInfo appInfo = callingActivity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
-                _returnAppName = callingActivity.getPackageManager().getApplicationLabel( appInfo ).toString();
-            } catch( PackageManager.NameNotFoundException ex ) {
-                Log.d("error","ERROR!!!!");
-                ex.printStackTrace();
-            }
-        }
+        // if( null == _returnAppName ) {
+        //     try {
+        //         String packageName = callingActivity.getPackageName();
+        //         ApplicationInfo appInfo = callingActivity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
+        //         _returnAppName = callingActivity.getPackageManager().getApplicationLabel( appInfo ).toString();
+        //     } catch( PackageManager.NameNotFoundException ex ) {
+        //         ex.printStackTrace();
+        //     }
+        // }
 
         Bundle bundle = new Bundle();
         bundle.putString( Keys.ADDRESS,            _address );
