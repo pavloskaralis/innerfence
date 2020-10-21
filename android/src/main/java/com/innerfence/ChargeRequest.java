@@ -222,14 +222,13 @@ public class ChargeRequest {
 
     public void submit( Activity callingActivity ) throws ApplicationNotInstalledException {
         if( null == _returnAppName ) {
-            _returnAppName = "com.hungry.captain";
-            // try {
-            //     String packageName = callingActivity.getPackageName();
-            //     ApplicationInfo appInfo = callingActivity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
-            //     _returnAppName = callingActivity.getPackageManager().getApplicationLabel( appInfo ).toString();
-            // } catch( PackageManager.NameNotFoundException ex ) {
-            //     ex.printStackTrace();
-            // }
+            try {
+                String packageName = callingActivity.getPackageName();
+                ApplicationInfo appInfo = callingActivity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
+                _returnAppName = callingActivity.getPackageManager().getApplicationLabel( appInfo ).toString();
+            } catch( PackageManager.NameNotFoundException ex ) {
+                ex.printStackTrace();
+            }
         }
 
         Bundle bundle = new Bundle();
