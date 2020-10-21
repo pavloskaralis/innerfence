@@ -17,6 +17,10 @@ import com.facebook.react.bridge.WritableMap;
 import com.innerfence.ChargeRequest;
 import com.innerfence.ChargeResponse;
 
+import android.content.*;
+import android.content.pm.*;
+import android.content.pm.PackageManager;
+
 public class RNInnerFenceModule extends ReactContextBaseJavaModule {
 
     private Promise mPromise;
@@ -53,7 +57,15 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
                     cardType = String.format("%s\n",chargeResponse.getCardType());
                     redactedCardNumber = String.format("%s\n",chargeResponse.getRedactedCardNumber());
                 } else {
-                    status = "not charged";
+
+                    try {
+                        String packageName = activity.getPackageName();
+                        ApplicationInfo appInfo = activity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
+                        _returnAppName = activity.getPackageManager().getApplicationLabel( appInfo ).toString();
+                    } catch( PackageManager.NameNotFoundException ex ) {
+                        ex.printStackTrace();
+                    }
+                    status = _returnAppName;
                 }
     
                 WritableMap res = Arguments.createMap();
@@ -113,19 +125,19 @@ public class RNInnerFenceModule extends ReactContextBaseJavaModule {
         chargeRequest.setExtraParams( extraParams );
 
         chargeRequest.setAddress(address);
-            chargeRequest.setAmount(amount);
-            chargeRequest.setCurrency(currency);
-            chargeRequest.setCity(city);
-            chargeRequest.setCompany(company);
-            chargeRequest.setCountry(country);
-            chargeRequest.setDescription(description);
-            chargeRequest.setEmail(email);
-            chargeRequest.setFirstName(firstName);
-            chargeRequest.setInvoiceNumber(invoiceNumber);
-            chargeRequest.setLastName(lastName);
-            chargeRequest.setPhone(phone);
-            chargeRequest.setState(state);
-            chargeRequest.setZip(zip);
+        chargeRequest.setAmount(amount);
+        chargeRequest.setCurrency(currency);
+        chargeRequest.setCity(city);
+        chargeRequest.setCompany(company);
+        chargeRequest.setCountry(country);
+        chargeRequest.setDescription(description);
+        chargeRequest.setEmail(email);
+        chargeRequest.setFirstName(firstName);
+        chargeRequest.setInvoiceNumber(invoiceNumber);
+        chargeRequest.setLastName(lastName);
+        chargeRequest.setPhone(phone);
+        chargeRequest.setState(state);
+        chargeRequest.setZip(zip);
 
         try {
             chargeRequest.submit( activity );
