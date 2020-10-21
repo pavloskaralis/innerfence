@@ -1,34 +1,3 @@
-//
-// ChargeRequest.java
-// Inner Fence Credit Card Terminal for Android
-// API 1.0.0
-//
-// You may license this source code under the MIT License, reproduced
-// below.
-//
-// Copyright (c) 2012 Inner Fence, LLC
-//
-// Permission is hereby granted, free of charge, to any person
-// obtaining a copy of this software and associated documentation
-// files (the "Software"), to deal in the Software without
-// restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the
-// Software is furnished to do so, subject to the following
-// conditions:
-//
-// The above copyright notice and this permission notice shall be
-// included in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-// OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-// WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-// OTHER DEALINGS IN THE SOFTWARE.
-//
 package com.innerfence;
 
 import android.app.Activity;
@@ -36,15 +5,13 @@ import android.content.*;
 import android.content.pm.*;
 import android.os.Bundle;
 
-public class ChargeRequest
-{
-    public static final int CCTERMINAL_REQUEST_CODE = 57634;
+public class ChargeRequest {
+    public static final int CCTERMINAL_REQUEST_CODE = 43572;
     public static final String CCTERMINAL_MARKET_LINK = "market://details?id=com.innerfence.ccterminal";
 
     public class ApplicationNotInstalledException extends Exception { }
 
-    public static class Keys
-    {
+    public static class Keys {
         public static final String ADDRESS            = "address";
         public static final String AMOUNT             = "amount";
         public static final String AMOUNT_FIXED       = "amountFixed";
@@ -66,18 +33,15 @@ public class ChargeRequest
         public static final String ZIP                = "zip";
     }
 
-    public static boolean IsAppInstalled( Context context )
-    {
-        try
-        {
+    public static boolean IsAppInstalled( Context context ) {
+        try {
             ApplicationInfo appInfo =
                 context.getPackageManager().getApplicationInfo(
                     "com.innerfence.ccterminal", PackageManager.GET_META_DATA );
 
             return true;
         }
-        catch( PackageManager.NameNotFoundException ex )
-        {
+        catch( PackageManager.NameNotFoundException ex ) {
             return false;
         }
     }
@@ -104,216 +68,172 @@ public class ChargeRequest
 
     public ChargeRequest() { }
 
-    public String getAddress()
-    {
+    public String getAddress() {
         return _address;
     }
 
-    public void setAddress( String value )
-    {
+    public void setAddress( String value ) {
         _address = value;
     }
 
-    public String getAmount()
-    {
+    public String getAmount() {
         return _amount;
     }
 
-    public void setAmount( String value )
-    {
+    public void setAmount( String value ) {
         _amount = value;
     }
 
-    public String getAmountFixed()
-    {
+    public String getAmountFixed() {
         return _amountFixed;
     }
 
-    public void setAmountFixed( String value )
-    {
+    public void setAmountFixed( String value ) {
         _amountFixed = value;
     }
 
-    public String getCity()
-    {
+    public String getCity() {
         return _city;
     }
 
-    public void setCity( String value )
-    {
+    public void setCity( String value ) {
         _city = value;
     }
 
-    public String getCompany()
-    {
+    public String getCompany() {
         return _company;
     }
 
-    public void setCompany( String value )
-    {
+    public void setCompany( String value ) {
         _company = value;
     }
 
-    public String getCountry()
-    {
+    public String getCountry() {
         return _country;
     }
 
-    public void setCountry( String value )
-    {
+    public void setCountry( String value ) {
         _country = value;
     }
 
-    public String getCurrency()
-    {
+    public String getCurrency() {
         return _currency;
     }
 
-    public void setCurrency( String value )
-    {
+    public void setCurrency( String value ) {
         _currency = value;
     }
 
-    public String getDescription()
-    {
+    public String getDescription() {
         return _description;
     }
 
-    public void setDescription( String value )
-    {
+    public void setDescription( String value ) {
         _description = value;
     }
 
-    public String getEmail()
-    {
+    public String getEmail() {
         return _email;
     }
 
-    public void setEmail( String value )
-    {
+    public void setEmail( String value ) {
         _email = value;
     }
 
-    public Bundle getExtraParams()
-    {
+    public Bundle getExtraParams() {
         return _extraParams;
     }
 
-    public void setExtraParams( Bundle value )
-    {
+    public void setExtraParams( Bundle value ) {
         _extraParams = value;
     }
 
-    public String getFirstName()
-    {
+    public String getFirstName() {
         return _firstName;
     }
 
-    public void setFirstName( String value )
-    {
+    public void setFirstName( String value ) {
         _firstName = value;
     }
 
-    public String getInvoiceNumber()
-    {
+    public String getInvoiceNumber() {
         return _invoiceNumber;
     }
 
-    public void setInvoiceNumber( String value )
-    {
+    public void setInvoiceNumber( String value ) {
         _invoiceNumber = value;
     }
 
-    public String getLastName()
-    {
+    public String getLastName() {
         return _lastName;
     }
 
-    public void setLastName( String value )
-    {
+    public void setLastName( String value ) {
         _lastName = value;
     }
 
-    public String getPhone()
-    {
+    public String getPhone() {
         return _phone;
     }
 
-    public void setPhone( String value )
-    {
+    public void setPhone( String value ) {
         _phone = value;
     }
 
-    public String getReturnAppName()
-    {
+    public String getReturnAppName() {
         return _returnAppName;
     }
 
-    public void setReturnAppName( String value )
-    {
+    public void setReturnAppName( String value ) {
         _returnAppName = value;
     }
 
-    public String getReturnImmediately()
-    {
+    public String getReturnImmediately() {
         return _returnImmediately;
     }
 
-    public void setReturnImmediately( String value )
-    {
+    public void setReturnImmediately( String value ) {
         _returnImmediately = value;
     }
 
-    public String getState()
-    {
+    public String getState() {
         return _state;
     }
 
-    public void setState( String value )
-    {
+    public void setState( String value ) {
         _state = value;
     }
 
-    public String getTaxRate()
-    {
+    public String getTaxRate() {
         return _taxRate;
     }
 
-    public void setTaxRate( String value )
-    {
+    public void setTaxRate( String value ) {
         _taxRate = value;
     }
 
-    public String getZip()
-    {
+    public String getZip() {
         return _zip;
     }
 
-    public void setZip( String value )
-    {
+    public void setZip( String value ) {
         _zip = value;
     }
 
-    public void submit( Activity callingActivity ) throws ApplicationNotInstalledException
-    {
-        if( null == _returnAppName )
-        {
-            try
-            {
+    public void submit( Activity callingActivity ) throws ApplicationNotInstalledException {
+        if( null == _returnAppName ) {
+            try {
                 String packageName = callingActivity.getPackageName();
                 ApplicationInfo appInfo = callingActivity.getPackageManager().getApplicationInfo( packageName, PackageManager.GET_META_DATA );
                 _returnAppName = callingActivity.getPackageManager().getApplicationLabel( appInfo ).toString();
-            }
-            catch( PackageManager.NameNotFoundException ex )
-            {
+            } catch( PackageManager.NameNotFoundException ex ) {
+                ex.printStackTrace();
             }
         }
 
-        String test = "20.00";
-
         Bundle bundle = new Bundle();
         bundle.putString( Keys.ADDRESS,            _address );
-        bundle.putString( Keys.AMOUNT,             test );
+        bundle.putString( Keys.AMOUNT,             _amount );
         bundle.putString( Keys.AMOUNT_FIXED,       _amountFixed );
         bundle.putString( Keys.CITY,               _city );
         bundle.putString( Keys.COMPANY,            _company );
@@ -329,18 +249,18 @@ public class ChargeRequest
         bundle.putString( Keys.STATE,              _state );
         bundle.putString( Keys.TAX_RATE,           _taxRate );
         bundle.putString( Keys.ZIP,                _zip );
-        // bundle.putString( Keys.RETURN_APP_NAME,    _returnAppName );
-        // bundle.putString( Keys.RETURN_IMMEDIATELY, _returnImmediately );
+        bundle.putString( Keys.RETURN_APP_NAME,    _returnAppName );
+        bundle.putString( Keys.RETURN_IMMEDIATELY, _returnImmediately );
 
         Intent intent = new Intent();
         intent.setClassName("com.innerfence.ccterminal", "com.innerfence.ccterminal.TerminalActivity");
         intent.putExtras( bundle );
 
-        if( !ChargeRequest.IsAppInstalled(callingActivity) )
-        {
+        if( !ChargeRequest.IsAppInstalled(callingActivity) ) {
             throw new ApplicationNotInstalledException();
         }
 
         callingActivity.startActivityForResult( intent, CCTERMINAL_REQUEST_CODE );
     }
 }
+
