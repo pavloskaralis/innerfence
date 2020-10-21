@@ -331,7 +331,7 @@ public class ChargeRequest
         bundle.putString( Keys.RETURN_IMMEDIATELY, _returnImmediately );
 
         Intent intent = new Intent();
-        intent.setClassName("com.innerfence.ccterminal", "com.innerfence.ccterminal.TerminalActivity");
+        intent.setClassName("com.innerfence.ccterminal", "com.innerfence.ccterminal");
         intent.putExtras( bundle );
 
         if( !ChargeRequest.IsAppInstalled(callingActivity) )
