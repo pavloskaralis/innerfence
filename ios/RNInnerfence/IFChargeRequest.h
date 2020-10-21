@@ -35,7 +35,7 @@
 @interface IFChargeRequest : NSObject
 {
 @protected
-    NSObject* _delegate;
+    __unsafe_unretained NSObject* _delegate;
 
     NSString* _returnAppName;
     NSString* _returnURL;

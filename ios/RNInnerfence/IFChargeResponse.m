@@ -49,7 +49,7 @@ static __inline__ BOOL IFMatchesPattern( NSString* s, NSString* p )
 
 static NSMutableDictionary<NSString*,NSString*>* IFParseQueryString( NSString* queryString )
 {
-    NSMutableDictionary* dict = [[[NSMutableDictionary alloc] init] autorelease];
+    NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
 
     if ( [queryString length] )
     {
@@ -139,7 +139,7 @@ static NSDictionary* _responseCodes;
 {
     _fieldPatterns = [[NSDictionary alloc]
                          initWithObjectsAndKeys:IF_CHARGE_RESPONSE_FIELD_PATTERNS];
-    _fieldList     = [[[_fieldPatterns allKeys] sortedArrayUsingSelector:@selector(compare:)] retain];
+    _fieldList     = [[_fieldPatterns allKeys] sortedArrayUsingSelector:@selector(compare:)];
     _responseCodes = [[NSDictionary alloc]
                          initWithObjectsAndKeys:IF_CHARGE_RESPONSE_CODE_MAPPING];
 }
@@ -269,21 +269,5 @@ static NSDictionary* _responseCodes;
     }
 }
 
-- (void)dealloc
-{
-    [_baseURL release];
-    [_amount release];
-    [_cardType release];
-    [_currency release];
-    [_extraParams release];
-    [_redactedCardNumber release];
-    [_responseType release];
-    [_transactionId release];
-    [_taxAmount release];
-    [_taxRate release];
-    [_tipAmount release];
-
-    [super dealloc];
-}
 
 @end

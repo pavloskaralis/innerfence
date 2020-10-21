@@ -55,16 +55,16 @@ static NSString* IFEncodeURIComponent( NSString* s )
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated"
     CFStringRef encodedValue =
-        CFURLCreateStringByAddingPercentEscapes(
+         CFURLCreateStringByAddingPercentEscapes(
             kCFAllocatorDefault,
-            (CFStringRef)s,
+            (__bridge CFStringRef)s,
             NULL,
             (CFStringRef)URI_RESERVED_CHARS,
             kCFStringEncodingUTF8
         );
 #pragma clang diagnostic push
 
-    return [NSMakeCollectable( encodedValue ) autorelease];
+    return (__bridge NSString *)encodedValue;
 }
 
 #endif
@@ -167,7 +167,7 @@ static char _nonceAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuv
 
 - (NSString*)createAndStoreNonce
 {
-    NSMutableString* nonceString = [[[NSMutableString alloc] initWithCapacity:kNonceLength] autorelease];
+    NSMutableString* nonceString = [[NSMutableString alloc] initWithCapacity:kNonceLength];
     for ( NSUInteger i = 0; i < kNonceLength; i++ )
     {
         [nonceString appendFormat:@"%c", _nonceAlphabet[ ( arc4random() & kNonceAlphabetMask ) ]];
@@ -189,13 +189,13 @@ static char _nonceAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuv
 #if TARGET_OS_IPHONE
     else
     {
-        [[[[UIAlertView alloc]
+        [[[UIAlertView alloc]
             initWithTitle:IF_CHARGE_NOT_INSTALLED_TITLE
             message:IF_CHARGE_NOT_INSTALLED_MESSAGE
             delegate:nil
             cancelButtonTitle:IF_CHARGE_NOT_INSTALLED_BUTTON
             otherButtonTitles:nil
-        ] autorelease] show];
+        ] show];
     }
 #endif
 }
@@ -223,7 +223,6 @@ static char _nonceAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuv
 
     // Convert to NSURL
     NSURL* url = [NSURL URLWithString:urlString];
-    [urlString release];
     return url;
 }
 
@@ -262,7 +261,6 @@ static char _nonceAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuv
     }
 
     self.returnURL = urlString;
-    [urlString release];
 }
 
 #if TARGET_OS_IPHONE
@@ -321,33 +319,5 @@ static char _nonceAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuv
 }
 
 #endif
-
-- (void)dealloc
-{
-    _delegate = nil;
-
-    [_returnAppName release];
-    [_returnURL release];
-    [_returnImmediately release];
-
-    [_address release];
-    [_amount release];
-    [_amountFixed release];
-    [_city release];
-    [_company release];
-    [_country release];
-    [_currency release];
-    [_description release];
-    [_email release];
-    [_firstName release];
-    [_invoiceNumber release];
-    [_lastName release];
-    [_phone release];
-    [_state release];
-    [_taxRate release];
-    [_zip release];
-
-    [super dealloc];
-}
 
 @end
