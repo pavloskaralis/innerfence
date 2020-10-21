@@ -51,7 +51,7 @@ public class ChargeResponse{
     protected String _errorMessage;
     protected Bundle _extraParams;
     protected String _redactedCardNumber;
-    protected Code   _responseCode;
+    protected Code   _responseCode = "1";
     protected String _responseType;
     protected String _taxAmount;
     protected String _taxRate;
@@ -62,16 +62,19 @@ public class ChargeResponse{
 
     public ChargeResponse( Intent data ) {
         if( null == data ) {
+            _responseCode = "2";
             throw new IllegalArgumentException("data is null");
         }
 
         if( null == data.getExtras() ) {
+            _responseCode = "3";
             throw new IllegalArgumentException("data has no extras bundle.");
         }
 
         Bundle bundle = data.getExtras();
 
         if( !bundle.containsKey(Keys.RESPONSE_TYPE) ) {
+            _responseCode = "4";
             throw new IllegalArgumentException("data's extras bundle doesn't contain a response type");
         }
 
@@ -99,7 +102,7 @@ public class ChargeResponse{
             _responseCode = Code.DECLINED;
         }
         else {
-            _responseCode = Code.ERROR;
+            // _responseCode = Code.ERROR;
         }
     }
 
