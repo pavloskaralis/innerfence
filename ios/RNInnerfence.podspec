@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "bhavik" => "bhavik@tryhungry.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/BhavikBhatt/innerfence-ios.git", :tag => "master" }
+  s.source       = { :git => "https://github.com/pavloskaralis/innerfence", :tag => "main" }
   s.source_files  = "RNInnerFence/**/*.{h,m}"
   s.requires_arc = true
 
