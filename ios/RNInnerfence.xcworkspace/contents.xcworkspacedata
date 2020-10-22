@@ -3,6 +3,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:RNInnerfence.xcodeproj">
+      location = "group:RNInnerFence.xcodeproj">
    </FileRef>
 </Workspace>

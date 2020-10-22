@@ -4,6 +4,6 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-@interface RNInnerfence : NSObject <RCTBridgeModule>
+@interface RNInnerFence : NSObject <RCTBridgeModule>
 
 @end

@@ -19,8 +19,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* libRNInnerfence.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNInnerfence.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F4F302E212501210006142C /* RNInnerfence */ = {isa = PBXFileReference; lastKnownFileType = folder; path = RNInnerfence; sourceTree = "<group>"; };
+		134814201AA4EA6300B7C361 /* libRNInnerFence.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNInnerFence.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F4F302E212501210006142C /* RNInnerFence */ = {isa = PBXFileReference; lastKnownFileType = folder; path = RNInnerFence; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +37,7 @@
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				134814201AA4EA6300B7C361 /* libRNInnerfence.a */,
+				134814201AA4EA6300B7C361 /* libRNInnerFence.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -45,7 +45,7 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				6F4F302E212501210006142C /* RNInnerfence */,
+				6F4F302E212501210006142C /* RNInnerFence */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,9 +53,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* RNInnerfence */ = {
+		58B511DA1A9E6C8500147676 /* RNInnerFence */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNInnerfence" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNInnerFence" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -65,9 +65,9 @@
 			);
 			dependencies = (
 			);
-			name = RNInnerfence;
+			name = RNInnerFence;
 			productName = RCTDataManager;
-			productReference = 134814201AA4EA6300B7C361 /* libRNInnerfence.a */;
+			productReference = 134814201AA4EA6300B7C361 /* libRNInnerFence.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -84,7 +84,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNInnerfence" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNInnerFence" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -96,7 +96,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				58B511DA1A9E6C8500147676 /* RNInnerfence */,
+				58B511DA1A9E6C8500147676 /* RNInnerFence */,
 			);
 		};
 /* End PBXProject section */
@@ -204,7 +204,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = RNInnerfence;
+				PRODUCT_NAME = RNInnerFence;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -220,7 +220,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = RNInnerfence;
+				PRODUCT_NAME = RNInnerFence;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -228,7 +228,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNInnerfence" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNInnerFence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -237,7 +237,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNInnerfence" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNInnerFence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,

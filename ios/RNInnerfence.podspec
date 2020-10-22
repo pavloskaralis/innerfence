@@ -2,11 +2,11 @@ require 'json'
 package = JSON.parse(File.read('../package.json'))
 
 Pod::Spec.new do |s|
-  s.name         = "RNInnerfence"
+  s.name         = "RNInnerFence"
   s.version      =  package["version"]
   s.summary      = "summary"
   s.description  = <<-DESC
-                  RNInnerfence
+                  RNInnerFence
                    DESC
   s.homepage     = "n/a"
   s.license      = package['license']
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.author             = { "bhavik" => "bhavik@tryhungry.com" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/BhavikBhatt/innerfence-ios.git", :tag => "master" }
-  s.source_files  = "RNInnerfence/**/*.{h,m}"
+  s.source_files  = "RNInnerFence/**/*.{h,m}"
   s.requires_arc = true
 
 

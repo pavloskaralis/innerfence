@@ -6,7 +6,7 @@
 //  Copyright © 2015 Inner Fence. All rights reserved.
 //
 
-#import "RNInnerfence.h"
+#import "RNInnerFence.h"
 
 #import "React/RCTBridge.h"
 #import "React/RCTConvert.h"
@@ -14,14 +14,14 @@
 #import "IFChargeRequest.h"
 #import "IFChargeResponse.h"
 
-@interface RNInnerfence ()
+@interface RNInnerFence ()
 
 @property (copy) RCTPromiseResolveBlock resolve;
 @property (copy) RCTPromiseRejectBlock reject;
 
 @end
 
-@implementation RNInnerfence
+@implementation RNInnerFence
 
 - (dispatch_queue_t)methodQueue
 {
