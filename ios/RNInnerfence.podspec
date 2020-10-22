@@ -1,6 +1,5 @@
 require 'json'
 package = JSON.parse(File.read('../package.json'))
-
 Pod::Spec.new do |s|
   s.name         = "RNInnerFence"
   s.version      =  package["version"]
